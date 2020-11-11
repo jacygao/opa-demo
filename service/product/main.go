@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 )
 
@@ -16,7 +17,7 @@ func product(w http.ResponseWriter, req *http.Request) {
 }
 
 func main() {
-	http.HandleFunc("/product", order)
-	log.Println("starting product service on port 8002")
-	http.ListenAndServe(":8002", nil)
+	http.HandleFunc("/product", product)
+	log.Println("starting product service on port 8080")
+	http.ListenAndServe(":8080", nil)
 }
