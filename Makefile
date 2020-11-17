@@ -14,3 +14,6 @@ order:
 
 admin:
 	go run ./service/admin/main.go
+
+store-policy:
+	kubectl create secret generic opa-policy --from-file policy/policy.rego
