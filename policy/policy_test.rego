@@ -36,6 +36,22 @@ test_post_product_by_admin_allowed {
     }
 }
 
+test_get_product_by_guest_allowed {
+    allow with input as {
+     	"attributes": {
+        	"request": {
+            	"http": {
+                	"method": "GET",
+                    "path": "/product",
+                    "headers": {
+                    	"authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ3Vlc3QiLCJzdWIiOiJZV3hwWTJVPSIsIm5iZiI6MTUxNDg1MTEzOSwiZXhwIjoxNjQxMDgxNTM5fQ.K5DnnbbIOspRbpCr2IKXE9cPVatGOCBrBQobQmBmaeU"
+                    }
+                }
+            }
+        },
+    }
+}
+
 test_post_product_by_guest_not_allowed {
     not allow with input as {
      	"attributes": {
@@ -44,7 +60,7 @@ test_post_product_by_guest_not_allowed {
                 	"method": "POST",
                     "path": "/product",
                     "headers": {
-                    	"authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ3Vlc3QiLCJzdWIiOiJZbTlpIiwibmJmIjoxNTE0ODUxMTM5LCJleHAiOjE2NDEwODE1Mzl9.jbhWEuIizusK3OL9Fe4-l2Hi-i1xQ9t8xADBUZkGICc"
+                    	"authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ3Vlc3QiLCJzdWIiOiJZV3hwWTJVPSIsIm5iZiI6MTUxNDg1MTEzOSwiZXhwIjoxNjQxMDgxNTM5fQ.K5DnnbbIOspRbpCr2IKXE9cPVatGOCBrBQobQmBmaeU"
                     }
                 }
             }
